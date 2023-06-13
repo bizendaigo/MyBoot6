@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--Thymeleaf使用宣言-->
+<head>
+<meta charset="UTF-8" />
+<title>書籍登録一覧画面</title>
+</head>
+	<body>
+		<table>
+			<tr th:each="book : ${books}">　　<!--
+											画面に渡った値（パラメタ）booksを
+											1件ずつbookに格納しループ（each）させる
+											-->
+				<td th:text="${book.id}">100</td>
+				<td th:text="${book.title}">タイトルＡ</td>
+				<td th:text="${book.writter}">著者Ａ</td>
+				<td th:text="${book.publisher}">出版社Ａ</td>
+				<td th:text="${book.price}">100</td>
+			</tr>
+		</table>
+		<form th:action="@{/books/list}" method="post"> <!--submit押したときに移動する場所-->
+			<table>
+				<tr><td>ID:</td><td><input type="text" name="id" /></td></t>
+				<tr><td>タイトル:</td><td><input type="text" name="title" /></td></tr>
+				<tr><td>著者：</td><td><input type="text" name="writter" /></td></tr>
+				<tr><td>出版社：</td><td><input type="text" name="publisher" /></td></tr>
+				<tr><td>価格：</td><td><input type="text" name="price" /></td></tr>
+			</table>
+			<input type="submit" />
+		</form>
+	</body>
+</html>
