@@ -11,20 +11,20 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloController {
 	@Autowired
-	BookService bookService;
+		BookService bookService;
 	@RequestMapping("books/list")//URL指定
-	public String index(Model model) {
-	model.addAttribute("msg", "this is setting message");
-	return "books/list";//URL指定
+		public String index(Model model) {
+		model.addAttribute("msg", "this is setting message");
+		return "books/list";//URL指定
 	}
 	@RequestMapping(value="books/list", method=RequestMethod.POST)//URL指定
-	public ModelAndView postForm(@RequestParam("id") String id, 
+		public ModelAndView postForm(@RequestParam("id") String id, 
 	@RequestParam("title") String title,@RequestParam("writter") String writter, 
 	@RequestParam("publisher") String publisher,@RequestParam("price") String price) {
-	ModelAndView mv = new ModelAndView("books/list");//URL指定
-	bookService.save(new BookBean(Integer.valueOf(id), title, writter, publisher, 
-	Integer.valueOf(price)));//全パラメタ指定
-	mv.addObject("books",bookService.findAll());//booksとしてlist<BookBean>をそのまま渡す
-	return mv;
-	}
+		ModelAndView mv = new ModelAndView("books/list");//URL指定
+		bookService.save(new BookBean(Integer.valueOf(id), title, writter, publisher, 
+		Integer.valueOf(price)));//全パラメタ指定
+		mv.addObject("books",bookService.findAll());//booksとしてlist<BookBean>をそのまま渡す
+		return mv;
+		}
 }
