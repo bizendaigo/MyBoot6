@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"><!--Thymeleaf使用宣言-->
 <head>
-<meta charset="UTF-8" />
-<title>書籍登録一覧画面</title>
+	<meta charset="UTF-8" />
+	<title>書籍登録一覧画面</title>
 </head>
 	<body>
 		<table>
 			<tr th:each="book : ${books}">　　<!--
-											画面に渡った値（パラメタ）booksを
-											1件ずつbookに格納しループ（each）させる
+											画面に渡った値（パラメタ）booksを1件ずつbookに格納しループ（each）させる
 											-->
 				<td th:text="${book.id}">100</td>
 				<td th:text="${book.title}">タイトルＡ</td>
@@ -25,7 +24,7 @@
 				<tr><td>出版社：</td><td><input type="text" name="publisher" /></td></tr>
 				<tr><td>価格：</td><td><input type="text" name="price" /></td></tr>
 			</table>
-			<input type="submit" />
+			<input type="submit"/>
 		</form>
 	</body>
 </html>
